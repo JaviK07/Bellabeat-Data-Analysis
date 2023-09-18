@@ -1,5 +1,5 @@
 # Debido a la limitación de tamaño y la falta de información demográfica, podríamos enfrentar un sesgo de muestra. 
-# No estamos seguros de si la muestra es representativa de la población en su totalidad. 
+# la muestra podria o no ser representativa de la población en su totalidad. 
 # Otro problema que podríamos encontrar es que el conjunto de datos no es actual y también existe una limitación de tiempo en la encuesta (2 meses de duración).
 # Es por eso que abordo el estudio de caso con un enfoque operativo.
 
@@ -64,8 +64,8 @@ df.to_sql(nombreTabla, conn2, if_exists='replace', index=False)
 # Sacamos cantidad por categoria y el porcentaje que representa de la muestra y guardo en tabla nueva
 query3 = '''
 SELECT Categoria, 
-COUNT(*) AS Cantidad, 
-ROUND((COUNT(*) * 100.0) / (SELECT COUNT(*) FROM promedios), 1) AS PorcentajeDelTotal
+    COUNT(*) AS Cantidad, 
+    ROUND((COUNT(*) * 1.0) / (SELECT COUNT(*) FROM promedios), 2) AS PorcentajeDelTotal
 FROM promedios
 GROUP BY Categoria;
 '''
