@@ -24,7 +24,7 @@ cur = conn.cursor()
 
 query = '''
 SELECT Promedio_Calories, Promedio_TotalDistance
-FROM promedio_pasos
+FROM promedios
 '''
 df = pd.read_sql_query(query, conn)
 
